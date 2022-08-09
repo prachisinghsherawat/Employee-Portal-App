@@ -1,30 +1,36 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 
 
 export const Search = () => {
 
-    const [food ,setFood] = useState([])   
+    const [food ,setFood] = useState([])
+    const [filter , setFilter] = useState([])
+    useEffect(()=> {getData()})  
 
     const getData = () => {
         axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data.meals))
     }
-    console.log(food)
+    //console.log(food)
+
+    const searchItems = (e) => {
+        let filteredData = food.filter((el) => el.strMeal.toLowerCase().includes(e.toLowerCase()))
+        setFilter([...filteredData])
+    }
+    console.log(filter)
 
     return( 
 
         <>
 
         <div>
-            <input type="text" placeholder="enter your food" id="foodItems" />
-            <button onClick={getData}>Submit</button>
+            <input type="text" placeholder="enter your food" id="foodItems" onChange={(e) => searchItems(e.target.value)} />
+            <button >Submit</button>
         </div>
 
-        {food.map((el) =>(
-
+        {filter.map((el)=>(
             <div>
-                <img src={el.strMealThumb} alt="food_img" />
-                <h1>{el.strMeal}</h1>
+                <p>{el.strMeal}</p>
             </div>
         ))}
 
