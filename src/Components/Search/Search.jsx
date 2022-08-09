@@ -1,23 +1,32 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import axios from "axios"
-
 
 
 export const Search = () => {
 
-    const [food , setFood] = useState([])
-    useEffect(() => {getData()},[])
+    const [food ,setFood] = useState([])   
 
     const getData = () => {
-        axios.get("www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data))
+        axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data))
     }
     console.log(food)
 
-    return(
+    return( 
+
+        <>
 
         <div>
             <input type="text" placeholder="enter your food" id="foodItems" />
-            <button>Submit</button>
+            <button onClick={getData}>Submit</button>
         </div>
+
+        {food.map((el) =>(
+
+            <div>
+                <img src={el.strMealThumb} alt="food_img" />
+            </div>
+        ))}
+
+        </>
     )
 }

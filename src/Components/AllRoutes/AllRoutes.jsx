@@ -9,5 +9,6 @@ export const AllRoutes = () => {
         <Routes>
             <Route path="/search" element={<Search />} />
         </Routes>
+
     )
 }
