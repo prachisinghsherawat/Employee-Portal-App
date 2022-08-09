@@ -7,7 +7,7 @@ export const Search = () => {
     const [food ,setFood] = useState([])   
 
     const getData = () => {
-        axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data))
+        axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data.meals))
     }
     console.log(food)
 
@@ -24,6 +24,7 @@ export const Search = () => {
 
             <div>
                 <img src={el.strMealThumb} alt="food_img" />
+                <h1>{el.strMeal}</h1>
             </div>
         ))}
 
