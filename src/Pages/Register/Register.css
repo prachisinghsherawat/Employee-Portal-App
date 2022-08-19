@@ -1,5 +1,4 @@
 
-
 .registerDiv{
     margin: auto;
     margin-top: 7%;
@@ -24,7 +23,7 @@ label{
 }
 
 #btn>button{
-    padding: 4%;
+    padding: 5%;
     width: 180px;
     height: 45px;
 }
