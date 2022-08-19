@@ -100,11 +100,11 @@ export const Register = () => {
 
        <div>
 
-       <label >Mobile Number : </label>
+       <label >Mobile : </label>
         <TextField
         name='mobile'
         id="demo-helper-text-misaligned"
-        label="Mobile Number"
+        label="Mobile"
         type="number"
        />
        <span>{simpleValidator.current.message( "mobile" , registerData?.mobile , "required|mobile")}</span>
