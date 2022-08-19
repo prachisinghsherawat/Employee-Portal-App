@@ -6,18 +6,21 @@ export const Search = () => {
 
     const [food ,setFood] = useState([])
     const [filter , setFilter] = useState([])
-    useEffect(()=> {getData()})  
+    useEffect(()=> {getData()}) 
+
 
     const getData = () => {
         axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a").then((res)=> setFood(res.data.meals))
     }
     //console.log(food)
 
+
     const searchItems = (e) => {
         let filteredData = food.filter((el) => el.strMeal.toLowerCase().includes(e.toLowerCase()))
         setFilter([...filteredData])
     }
     console.log(filter)
+    
 
     return( 
 
