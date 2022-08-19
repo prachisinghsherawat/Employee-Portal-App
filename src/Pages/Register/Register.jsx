@@ -29,10 +29,10 @@ export const Register = () => {
     const validateError = (fieldName) => {
 
         if(simpleValidator.current.fields[fieldName] == false && simpleValidator.current.messagesShown == true){
-            return "error"
+          return "error"
         }
         else{
-            return ""
+          return ""
         }
     }
 
@@ -40,10 +40,10 @@ export const Register = () => {
 
     <div className="registerDiv">
 
-      <Box id="Box">
+    <Box id="Box">
 
 
-        <div>
+      <div>
 
         <label >Name : </label>
         <TextField
@@ -53,10 +53,10 @@ export const Register = () => {
         />
         <span>{simpleValidator.current.message( "name" , registerData?.name , "required")}</span>
 
-        </div>
+      </div>
 
 
-        <div>
+      <div>
 
         <label >Email : </label>
         <TextField
@@ -67,10 +67,10 @@ export const Register = () => {
         />
         <span>{simpleValidator.current.message( "email" , registerData?.email , "required|email")}</span>
 
-        </div>
+      </div>
 
 
-        <div>
+      <div>
 
         <label >Password : </label>
         <TextField
@@ -78,13 +78,13 @@ export const Register = () => {
         id="demo-helper-text-misaligned"
         label="Password"
         type="password"
-       />
+        />
        <span>{simpleValidator.current.message( "password" , registerData?.password , "required|passsword")}</span>
 
-        </div>
+      </div>
 
 
-        <div>
+      <div>
 
         <label >Username : </label>
 
@@ -95,10 +95,10 @@ export const Register = () => {
         />
         <span>{simpleValidator.current.message( "username" , registerData?.username , "required")}</span>
 
-        </div>
+      </div>
 
 
-       <div>
+      <div>
 
        <label >Mobile : </label>
         <TextField
@@ -106,32 +106,33 @@ export const Register = () => {
         id="demo-helper-text-misaligned"
         label="Mobile"
         type="number"
-       />
-       <span>{simpleValidator.current.message( "mobile" , registerData?.mobile , "required|mobile")}</span>
+        />
+        <span>{simpleValidator.current.message( "mobile" , registerData?.mobile , "required|mobile")}</span>
 
-       </div>
+      </div>
 
-        <div>
+
+      <div>
 
         <label >Description : </label>
         <TextField
         name='description'
         id="demo-helper-text-misaligned"
         label="Description"
-       />
-       <span>{simpleValidator.current.message( "description" , registerData?.description , "required")}</span>
+        />
+        <span>{simpleValidator.current.message( "description" , registerData?.description , "required")}</span>
 
-        </div>
+      </div>
 
 
-        <div id="btn">
+      <div id="btn">
         <Button variant="contained">
-            Register Now
+          Register Now
         </Button>
-        </div>
+      </div>
 
       
-      </Box>
+    </Box>
 
     
 
