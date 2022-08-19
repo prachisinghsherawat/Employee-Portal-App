@@ -2,8 +2,33 @@
 
 .registerDiv{
     margin: auto;
-    margin-top: 8%;
-    height: 100px;
-    width: 75%;
-    border: 1px solid black;
+    margin-top: 7%;
+    height: 500px;
+    width: 30%;
+}
+
+#Box>div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+label{
+    margin-top: 3%;
+    font-size: 20px
+}
+
+#btn{
+    float: right;
+    padding: 2%;
+}
+
+#btn>button{
+    padding: 4%;
+    width: 180px;
+    height: 45px;
+}
+
+#demo-helper-text-misaligned{
+    width: 250px;
 }
