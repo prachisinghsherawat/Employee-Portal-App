@@ -7,9 +7,13 @@ import "./Register.css"
 import SimpleReactValidator from "simple-react-validator"
 import { useRef } from 'react';
 import { useState } from 'react';
+import axios from 'axios';
+import { useForceUpdate } from '@chakra-ui/react';
 
 
 export const Register = () => {
+
+    const [ , setForceUpdate ] = useState()
 
     const [registerData , setRegisterData ] = useState({
 
@@ -22,6 +26,18 @@ export const Register = () => {
     })
 
     const simpleValidator = useRef(new SimpleReactValidator())
+    
+
+    const SubmitDetails = () => {
+
+      if(simpleValidator.current.allValid()){
+        axios.post("http://localhost:3000/register", registerData)
+      }
+      else{
+        simpleValidator.current.showMessages()
+        setForceUpdate(1)
+      }     
+    }
 
 
 
@@ -126,7 +142,7 @@ export const Register = () => {
 
 
       <div id="btn">
-        <Button variant="contained">
+        <Button onClick={SubmitDetails} variant="contained">
           Register Now
         </Button>
       </div>
