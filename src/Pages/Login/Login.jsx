@@ -4,13 +4,18 @@ import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import "./Login.css"
+import SimpleReactValidator from "simple-react-validator"
 
 
 export const Login = () => {
 
-    
+    const simpleValidator = useRef(new SimpleReactValidator()) 
 
-    
+    const HandleChange = (e) => {
+
+        const {name , value} = e.target;
+        setRegisterData({...registerData , [name] : value})
+    }
 
 
 

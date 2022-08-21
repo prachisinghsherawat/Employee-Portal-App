@@ -8,7 +8,6 @@ import SimpleReactValidator from "simple-react-validator"
 import { useRef } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useForceUpdate } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 
