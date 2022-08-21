@@ -9,10 +9,12 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useForceUpdate } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Register = () => {
 
+    const navigate = useNavigate()
     const [ , setForceUpdate ] = useState()
 
     const [registerData , setRegisterData ] = useState({
@@ -25,7 +27,7 @@ export const Register = () => {
         description  : "" 
     })
 
-    const simpleValidator = useRef(new SimpleReactValidator())
+    const simpleValidator = useRef(new SimpleReactValidator())   
 
 
     const showErrors = () => {
@@ -38,12 +40,18 @@ export const Register = () => {
     const SubmitDetails = () => {
 
       if(simpleValidator.current.allValid()){
-        axios.post("http://localhost:8080/registerData", registerData)
+        axios.post("http://localhost:8080/registerData", registerData).then((res)=> {
+          if(res.status == 201 ){
+            navigate("/login")
+          }  
+        })
       }
       else{
         simpleValidator.current.showMessages()
         setForceUpdate(1)
-      }     
+      } 
+      
+      
     }
 
 
@@ -135,7 +143,7 @@ export const Register = () => {
         onChange={HandleChange}
         />
       </div>
-      <span className="error-msg">{simpleValidator.current.message( "mobile" , registerData?.mobile , "required")}</span>
+      <span className="error-msg">{simpleValidator.current.message( "mobile" , registerData?.mobile , "required|phone")}</span>
 
 
       <div>

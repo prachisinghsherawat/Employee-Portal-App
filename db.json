@@ -1,3 +1,13 @@
 {
-    "registerData" : []
+  "registerData": [
+    {
+      "name": "Prachi Singh Sherawat",
+      "email": "prachisinghsherawat@gmail.com",
+      "password": "prachi22",
+      "username": "prachisinghsherawat",
+      "mobile": "8533822585",
+      "description": "hgmjhklkolihjubjg",
+      "id": 1
+    }
+  ]
 }
