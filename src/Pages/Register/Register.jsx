@@ -40,10 +40,10 @@ export const Register = () => {
     const SubmitDetails = () => {
 
       if(simpleValidator.current.allValid()){
-        axios.post("http://localhost:8080/registerData", registerData).then((res)=> {
+        axios.post("http://localhost:8080/registerData", registerData).then((res)=>{
           if(res.status == 201 ){
             navigate("/login")
-          }  
+          }
         })
       }
       else{

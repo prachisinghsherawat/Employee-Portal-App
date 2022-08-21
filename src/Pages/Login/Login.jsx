@@ -50,7 +50,7 @@ export const Login = () => {
 
 
       <div id="btn">
-        <Button onClick={SubmitDetails} variant="contained">
+        <Button variant="contained">
           Register Now
         </Button>
       </div>
