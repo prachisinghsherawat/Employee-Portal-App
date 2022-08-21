@@ -1,0 +1,39 @@
+
+.registerDiv{
+    margin: auto;
+    margin-top: 7%;
+    height: 500px;
+    width: 30%;
+}
+
+#Box>div{
+    margin-top: 5%;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-between;  
+}
+
+label{
+    margin-top: 3%;
+    font-size: 20px
+}
+
+#btn{
+    float: right;
+    padding: 2%;
+}
+
+#btn>button{
+    padding: 5%;
+    width: 180px;
+    height: 45px;
+}
+
+.error-msg{
+    text-align: end;
+    color: rgb(221, 8, 8);
+}
+
+#demo-helper-text-misaligned{
+    width: 250px;
+}
