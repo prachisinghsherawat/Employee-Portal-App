@@ -26,12 +26,19 @@ export const Register = () => {
     })
 
     const simpleValidator = useRef(new SimpleReactValidator())
-    
+
+
+    const showErrors = () => {
+      simpleValidator.current.showMessages()
+      setForceUpdate(1)
+    }
+
+
 
     const SubmitDetails = () => {
 
       if(simpleValidator.current.allValid()){
-        axios.post("http://localhost:3000/register", registerData)
+        axios.post("http://localhost:8080/registerData", registerData)
       }
       else{
         simpleValidator.current.showMessages()
@@ -39,6 +46,12 @@ export const Register = () => {
       }     
     }
 
+
+    const HandleChange = (e) => {
+
+      const {name , value} = e.target;
+      setRegisterData({...registerData , [name] : value})
+    }
 
 
 
@@ -52,6 +65,9 @@ export const Register = () => {
         }
     }
 
+
+
+
     return (
 
     <div className="registerDiv">
@@ -60,85 +76,78 @@ export const Register = () => {
 
 
       <div>
-
         <label >Name : </label>
         <TextField
         name='name'
         id="demo-helper-text-misaligned"
         label="Name"
+        onChange={HandleChange}
         />
-        <span>{simpleValidator.current.message( "name" , registerData?.name , "required")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "name" , registerData?.name , "required")}</span>
 
 
       <div>
-
         <label >Email : </label>
         <TextField
         name='email'
         id="demo-helper-text-misaligned"
         label="Email"
         type="email"
+        onChange={HandleChange}
         />
-        <span>{simpleValidator.current.message( "email" , registerData?.email , "required|email")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "email" , registerData?.email , "required|email")}</span>
 
 
       <div>
-
         <label >Password : </label>
         <TextField
         name='password'
         id="demo-helper-text-misaligned"
         label="Password"
         type="password"
+        onChange={HandleChange}
         />
-       <span>{simpleValidator.current.message( "password" , registerData?.password , "required|passsword")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "password" , registerData?.password , "required")}</span>
 
 
       <div>
-
         <label >Username : </label>
-
         <TextField
         name='username'
         id="demo-helper-text-misaligned"
         label="Username"
+        onChange={HandleChange}
         />
-        <span>{simpleValidator.current.message( "username" , registerData?.username , "required")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "username" , registerData?.username , "required")}</span>
 
 
       <div>
-
        <label >Mobile : </label>
         <TextField
         name='mobile'
         id="demo-helper-text-misaligned"
         label="Mobile"
         type="number"
+        onChange={HandleChange}
         />
-        <span>{simpleValidator.current.message( "mobile" , registerData?.mobile , "required|mobile")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "mobile" , registerData?.mobile , "required")}</span>
 
 
       <div>
-
         <label >Description : </label>
         <TextField
         name='description'
         id="demo-helper-text-misaligned"
         label="Description"
+        onChange={HandleChange}
         />
-        <span>{simpleValidator.current.message( "description" , registerData?.description , "required")}</span>
-
       </div>
+      <span className="error-msg">{simpleValidator.current.message( "description" , registerData?.description , "required")}</span>
 
 
       <div id="btn">

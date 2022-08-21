@@ -8,6 +8,7 @@
 
 #Box>div{
     margin-top: 5%;
+    margin-bottom: 0px;
     display: flex;
     justify-content: space-between;  
 }
@@ -26,6 +27,11 @@ label{
     padding: 5%;
     width: 180px;
     height: 45px;
+}
+
+.error-msg{
+    text-align: end;
+    color: rgb(221, 8, 8);
 }
 
 #demo-helper-text-misaligned{
