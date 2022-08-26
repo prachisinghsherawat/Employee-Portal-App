@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 export const LOGIN_DATA = "LOGIN_DATA"
 
 
@@ -11,7 +12,7 @@ const LoginSuccess = (payload) => ({
 })  
 
 
-export const getData = () => {
+export const getData = () => (dispatch) => {
 
-    axios.get("http://localhost:8080/registerData")
+    axios.get("http://localhost:8080/registerData").then( (res)=> dispatch(LoginSuccess(res.data)))
 }
